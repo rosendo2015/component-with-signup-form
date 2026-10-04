@@ -22,18 +22,18 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   ) => {
     const baseClasses = `
       flex items-center justify-center gap-2
-      px-6 py-3 rounded-md font-bold
-      transition-all duration-200
+      px-6 py-3 rounded-md font-bold cursor-pointer
+      transition-all duration-200 shadow-[0_4px_0_rgba(52,163,118,0.9)]
       focus:outline-none focus:ring-2 focus:ring-offset-2
       disabled:opacity-50 disabled:cursor-not-allowed
     `;
 
     const variants = {
       primary: `
-        bg-green-400 text-white
-        hover:bg-opacity-90
-        focus:ring-green-400 focus:ring-opacity-50
-        active:bg-opacity-80
+        bg-[#5ec7a9] text-white
+        hover:bg-[#6bd1b1]
+        focus:ring-[#5ec7a9] focus:ring-opacity-50
+        active:translate-y-px active:shadow-none
       `,
       secondary: `
         bg-gray-900 text-white
@@ -54,7 +54,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     return (
       <button
         ref={ref}
-        className={`${baseClasses} ${variants[variant]} ${widthClass} ${className || ""}`}
+        className={`${baseClasses} ${variants[variant]} ${widthClass} ${className || ""}`.trim()}
         disabled={disabled || isLoading}
         {...props}
       >

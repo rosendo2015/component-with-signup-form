@@ -8,14 +8,14 @@ export function Alert({ message, type = "error", className = "" }: AlertProps) {
   const styles = {
     error: "bg-red-400 bg-opacity-10 border border-red-400 text-red-400",
     warning: "bg-yellow-50 border-yellow-200 text-yellow-600",
-    success: "bg-green-400 bg-opacity-10 border border-green-400 text-green-400",
+    success: "bg-green-50 border border-green-500 text-green-700",
     info: "bg-purple-700 bg-opacity-10 border border-purple-700 text-purple-700",
   };
 
   const iconStyles = {
     error: "text-red-400",
     warning: "text-yellow-500",
-    success: "text-green-400",
+    success: "text-green-700",
     info: "text-purple-700",
   };
 

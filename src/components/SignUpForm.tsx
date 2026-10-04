@@ -29,21 +29,21 @@ export function SignUpForm() {
     const newErrors: Record<string, string> = {};
 
     if (!formData.firstName.trim()) {
-      newErrors.firstName = "First Name is required";
+      newErrors.firstName = "First Name cannot be empty";
     }
 
     if (!formData.lastName.trim()) {
-      newErrors.lastName = "Last Name is required";
+      newErrors.lastName = "Last Name cannot be empty";
     }
 
     if (!formData.email.trim()) {
-      newErrors.email = "Email Address is required";
+      newErrors.email = "Email cannot be empty";
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = "Please enter a valid email";
+      newErrors.email = "Looks like this is not an email";
     }
 
     if (!formData.password.trim()) {
-      newErrors.password = "Password is required";
+      newErrors.password = "Password cannot be empty";
     }
 
     setErrors(newErrors);
@@ -73,7 +73,7 @@ export function SignUpForm() {
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-lg p-6 w-full max-w-mobile">
+    <div className="w-full">
       {serverError && (
         <Alert message={serverError} type="error" className="mb-6" />
       )}
@@ -129,14 +129,14 @@ export function SignUpForm() {
           fullWidth
           variant="primary"
           isLoading={isSubmitting}
-          className="bg-green-400 hover:bg-opacity-90 active:bg-opacity-80"
+          className="mt-1 h-14 bg-[#5ec7a9] text-base tracking-[0.08em] text-white shadow-[0_4px_0_rgba(52,163,118,0.9)] hover:bg-[#65cfb0] active:translate-y-[1px] active:shadow-none lg:h-[56px] lg:text-[1rem]"
         >
           CLAIM YOUR FREE TRIAL
         </Button>
 
-        <p className="text-center text-xs text-gray-900 mt-4">
+        <p className="mt-3 text-center text-xs text-[#6d6a7d] lg:text-[0.75rem]">
           By clicking the button, you are agreeing to our{" "}
-          <a href="#" className="text-purple-700 font-medium hover:underline">
+          <a href="#" className="font-semibold text-[#ff7a7a] underline-offset-2 hover:underline">
             Terms and Services
           </a>
         </p>
