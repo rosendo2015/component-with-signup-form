@@ -1,75 +1,103 @@
-# React + TypeScript + Vite
+# Signup Form
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Uma página de cadastro responsiva, construída com React, TypeScript e Vite. O layout segue a abordagem **mobile first** e adapta o formulário para telas maiores.
 
-Currently, two official plugins are available:
+## Prévia do design
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+### Mobile
 
-## React Compiler
+![Referência do design para celular](./src/assets/design/mobile-design.jpg)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Desktop
 
-## Expanding the ESLint configuration
+![Referência do design para desktop](./src/assets/design/desktop-design.jpg)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Os arquivos acima são referências visuais incluídas no projeto. O fundo da página usa os recursos disponíveis em `src/assets/images` e `public/images`.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Funcionalidades
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- Layout responsivo para celular e desktop.
+- Formulário com nome, sobrenome, e-mail e senha.
+- Validação de campos obrigatórios e formato de e-mail.
+- Mensagens de erro junto aos campos inválidos, com indicador visual.
+- Estados de foco e hover nos campos e no botão.
+- Feedback de envio, sucesso e erro.
+- Atributos de preenchimento automático apropriados para os campos.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+> **Nota:** o envio é demonstrativo. Não há API ou serviço de cadastro conectado; após uma validação bem-sucedida, a interface simula o processamento e exibe uma mensagem de sucesso.
 
+## Tecnologias
+
+- React 19
+- TypeScript
+- Vite
+- Tailwind CSS 4
+- ESLint
+
+## Requisitos
+
+- Node.js compatível com a versão do Vite usada pelo projeto.
+- npm.
+
+## Como executar
+
+Instale as dependências:
+
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+Inicie o servidor de desenvolvimento:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+npm run dev
 ```
+
+O Vite exibirá no terminal o endereço local para abrir no navegador.
+
+## Scripts disponíveis
+
+| Comando           | Descrição                                                                |
+| ----------------- | ------------------------------------------------------------------------ |
+| `npm run dev`     | Inicia o servidor de desenvolvimento com atualização automática.         |
+| `npm run build`   | Executa a verificação TypeScript e gera a versão de produção em `dist/`. |
+| `npm run preview` | Pré-visualiza localmente a versão compilada.                             |
+| `npm run lint`    | Executa o ESLint no projeto.                                             |
+
+## Estrutura do projeto
+
+```text
+src/
+├── assets/
+│   ├── design/       # Referências visuais mobile, desktop e estados ativos
+│   └── images/       # Imagens usadas pela interface
+├── components/
+│   ├── Button.tsx    # Botão reutilizável
+│   ├── Error.tsx     # Alertas de erro, sucesso e informação
+│   ├── Input.tsx     # Campo de formulário com estado de erro
+│   └── SignUpForm.tsx
+├── pages/
+│   └── SignUpPage.tsx
+├── App.tsx
+├── index.css
+└── main.tsx
+```
+
+## Validação do formulário
+
+O formulário verifica que:
+
+- Nome e sobrenome não estejam vazios.
+- O e-mail esteja preenchido e tenha um formato válido.
+- A senha não esteja vazia.
+
+Após a edição de um campo com erro, a respectiva mensagem é removida. Com dados válidos, a aplicação mostra um indicador de carregamento e, em seguida, uma confirmação demonstrativa.
+
+## Contato
+
+Entre em contato ou acompanhe meu trabalho:
+
+- **Nome:** Francisco Rosendo
+- **E-mail:** [rosendc30@gmail.com](mailto:rosendc30@gmail.com)
+- **GitHub:** [github.com/rosendo2015](https://github.com/rosendo2015)
+- **LinkedIn:** [linkedin.com/in/francisco-rosendo-coelho](https://www.linkedin.com/in/francisco-rosendo-coelho/)
